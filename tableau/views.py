@@ -1,8 +1,6 @@
 import os
-
 from django.shortcuts import render
 from .analyze import colorz as cz
-from django.http import *
 from .models import Files, Colors, Personality
 
 def update(request):
