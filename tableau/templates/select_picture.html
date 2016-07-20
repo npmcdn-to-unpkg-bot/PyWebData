@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select a picture</title>
+    <style>
+.preview {
+float:left;
+width:540px;
+height:620px;
+margin-top:0.6cm;
+
+}
+
+.thumb {float:right ;width:  {{ size.width }}px;
+           height: {{ size.height }}px;
+            margin-top:1px ;margin-right:3px;}
+
+.normal {
+border:3px solid #000000;}
+
+.selected {
+border:3px solid #ff0000;}
+</style>
+</head>
+<body>
+<img id="0" class="preview normal" src="" alt="preview" /><br />
+
+{%  for file in files %}
+<img id="{{ file.id}}" class="thumb normal" src='{% static "img/" %}{{ file.filename }}'alt="mountains" onmouseover="preview(this)" onclick="window.location.href='result/{{file.id}}'"/>
+       {%  endfor %}
+<script>
+
+    var lastImg = 183; //Set initial thumbnail and preview
+    document.getElementById(0).src = document.getElementById(lastImg).src;
+    document.getElementById(lastImg).className = "thumb selected";1
+
+    function preview(img) {
+        document.getElementById(lastImg).className = "thumb normal";
+        img.className = "thumb selected";
+        document.getElementById(0).src = img.src;
+        lastImg = img.id
+    }
+    function on_click(img){
+        document.getElementById(0).src = img.src;
+        lastImg = img.id
+         value="result"
+
+    }
+
+</script>
+
+</body>
+
+
+</html>
+
