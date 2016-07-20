@@ -1,6 +1,4 @@
 from django.db import models
-
-
 class Files(models.Model):
     filename = models.CharField(max_length=200, unique=True)
 

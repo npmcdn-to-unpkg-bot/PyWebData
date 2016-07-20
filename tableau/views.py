@@ -39,5 +39,5 @@ def result(request, pic_id):
             result = val['description'] #성격내용
             break
 
-    return render(request, 'result.html', context={'personality' : result})
+    return render(request, 'result.html', context={'personality' : result}) #성격격과를 personality보낸다.
 
