@@ -17,7 +17,7 @@ def update(request):
         colors.save() #저장한다.
 
 def index(request): # result.html
-    script = '''<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>'''
+    script = '''<script src="https://unpkg.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>'''
     files = Files.objects.all() #models 에 있는 Files를 가져온다.
     size = {'width':100, 'height':200} #이미지 사이즈를 설정한다.
     return render(request, 'select_picture.html', {'script':script, 'files':files, 'size':size})
